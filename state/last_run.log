@@ -1,0 +1,11 @@
+run at 2026-10-15T10:39:36.080351+00:00
+mode: publish; token set: True; channel set: True
+getMe: ok @esim_georgia_bot
+getChat: ok Квартиры в Тбилиси🇬🇪
+bot in channel: member can_post: None
+ss.ge qiravdeba p1 ru: TimeoutError('The read operation timed out')
+ss.ge qiravdeba p1 ka: TimeoutError('The read operation timed out')
+ss.ge qiravdeba-dghiurad p1 ru: TimeoutError('The read operation timed out')
+ss.ge qiravdeba-dghiurad p1 ka: TimeoutError('The read operation timed out')
+collected 0 listings
+nothing collected — site layout may have changed
