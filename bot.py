@@ -295,22 +295,59 @@ def tg(method, payload, token):
         return {"ok": False, "description": f"{type(e).__name__}: {e}"}
 
 
-def send(it, text, kb, token, chat):
-    imgs = it.get("appImages") or []
-    main = next((i for i in imgs if i.get("isMain")), imgs[0] if imgs else None)
-    candidates = []
-    if main and main.get("fileName"):
-        candidates = [full_image(main["fileName"]), main["fileName"]]
-    for photo in candidates:
-        r = tg("sendPhoto", {"chat_id": chat, "photo": photo, "caption": text,
-                             "parse_mode": "HTML", "reply_markup": kb}, token)
-        if r.get("ok"):
-            return True
-        log("sendPhoto failed:", r.get("description"))
-        if r.get("error_code") == 429:
-            time.sleep(int(r.get("parameters", {}).get("retry_after", 5)) + 1)
-    r = tg("sendMessage", {"chat_id": chat, "text": text, "parse_mode": "HTML",
-                           "reply_markup": kb, "disable_web_page_preview": True}, token)
+def photo_urls(it, limit):
+    """Full-size photo URLs, main photo first. The search page only carries a few
+    images, so the listing page is fetched for the complete set."""
+    imgs = []
+    try:
+        html = http_get(listing_url(it), attempts=2)
+        m = NEXT_DATA_RE.search(html)
+        if m:
+            data = json.loads(m.group(1))
+            imgs = data["props"]["pageProps"]["applicationData"].get("appImages") or []
+    except Exception as e:  # noqa: BLE001
+        log("listing page for photos failed:", repr(e))
+    if not imgs:
+        imgs = it.get("appImages") or []
+    imgs = [i for i in imgs if i.get("fileName") and not i.get("is360")]
+    imgs.sort(key=lambda i: (not i.get("isMain"), i.get("orderNo") or 0))
+    full = [full_image(i["fileName"]) for i in imgs][:limit]
+    thumbs = [i.get("fileNameThumb") or i["fileName"] for i in imgs][:limit]
+    return full, thumbs
+
+
+def tg_retry(method, payload, token):
+    r = tg(method, payload, token)
+    if r.get("error_code") == 429:
+        time.sleep(int((r.get("parameters") or {}).get("retry_after", 5)) + 1)
+        r = tg(method, payload, token)
+    return r
+
+
+def send_photos(urls, token, chat):
+    if not urls:
+        return False
+    if len(urls) == 1:
+        r = tg_retry("sendPhoto", {"chat_id": chat, "photo": urls[0]}, token)
+    else:
+        media = [{"type": "photo", "media": u} for u in urls]
+        r = tg_retry("sendMediaGroup", {"chat_id": chat, "media": media}, token)
+    if not r.get("ok"):
+        log("sending photos failed:", r.get("description"))
+    return bool(r.get("ok"))
+
+
+def send(it, text, kb, token, chat, photos=5):
+    """Album of up to `photos` pictures, then the text with buttons as the next message
+    (Telegram does not allow buttons on albums)."""
+    full, thumbs = photo_urls(it, photos)
+    if full and not send_photos(full, token, chat):
+        if not send_photos(thumbs, token, chat):
+            # one bad picture breaks the whole album; fall back to the main photo only
+            send_photos(full[:1], token, chat)
+    time.sleep(1)
+    r = tg_retry("sendMessage", {"chat_id": chat, "text": text, "parse_mode": "HTML",
+                                 "reply_markup": kb, "disable_web_page_preview": True}, token)
     if not r.get("ok"):
         log("sendMessage failed:", r.get("description"))
     return bool(r.get("ok"))
@@ -454,7 +491,7 @@ def main():
         if sent >= cfg["max_posts_per_run"]:
             break
         text = format_post(it, cfg, it["_market"])
-        if send(it, text, buttons(it, cfg), token, chat):
+        if send(it, text, buttons(it, cfg), token, chat, cfg.get("photos_per_post", 5)):
             state["posted"][str(it["applicationId"])] = now.isoformat()
             sent += 1
             time.sleep(cfg["delay_between_posts_sec"])

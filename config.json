@@ -8,6 +8,7 @@
   "max_posts_per_run": 1,
   "delay_between_posts_sec": 4,
   "require_photo": true,
+  "photos_per_post": 5,
   "price_usd_month": {"min": 250, "max": 5000},
   "price_usd_day": {"min": 15, "max": 500},
 
