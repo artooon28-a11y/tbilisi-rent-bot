@@ -1,0 +1,18 @@
+{
+  "city_id": 95,
+  "sections": [
+    {"slug": "qiravdeba", "kind": "month", "pages": 3},
+    {"slug": "qiravdeba-dghiurad", "kind": "day", "pages": 2}
+  ],
+  "max_age_hours": 24,
+  "max_posts_per_run": 4,
+  "delay_between_posts_sec": 4,
+  "require_photo": true,
+  "price_usd_month": {"min": 250, "max": 5000},
+  "price_usd_day": {"min": 15, "max": 500},
+
+  "esim_button_text": "📶 eSIM для Грузии — интернет с первой минуты",
+  "esim_url": "https://t.me/your_esim_bot",
+  "promo_line": "",
+  "contact_line": ""
+}

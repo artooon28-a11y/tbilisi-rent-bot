@@ -1,0 +1,41 @@
+name: post-listings
+on:
+  schedule:
+    - cron: "*/20 * * * *"   # every 20 minutes (GitHub may delay runs a little)
+  workflow_dispatch:          # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths: ["bot.py", "config.json", ".github/workflows/post.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-listings
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect and post
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          ESIM_URL: ${{ vars.ESIM_URL }}
+        run: python bot.py
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "listings-bot"
+          git config user.email "listings-bot@users.noreply.github.com"
+          for f in state preview.md; do [ -e "$f" ] && git add -A "$f"; done
+          git diff --cached --quiet && exit 0
+          git commit -m "Update state [skip ci]"
+          git pull --rebase -q origin main
+          git push
