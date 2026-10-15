@@ -73,10 +73,12 @@ def http_get(url, timeout=60, attempts=3):
     raise last
 
 
-def fetch_ss_page(slug, city_id, page, locale="ru"):
-    qs = urllib.parse.urlencode({"cityIdList": city_id, "order": 1, "page": page})
-    url = f"{SS_BASE}/{locale}/udzravi-qoneba/l/bina/{slug}?{qs}"
-    html = http_get(url)
+def fetch_ss_page(slug, city_id, page, locale="ru", newest=True, attempts=3):
+    params = {"cityIdList": city_id, "page": page}
+    if newest:
+        params["order"] = 1  # "newest first" sorting on ss.ge
+    url = f"{SS_BASE}/{locale}/udzravi-qoneba/l/bina/{slug}?{urllib.parse.urlencode(params)}"
+    html = http_get(url, attempts=attempts)
     m = NEXT_DATA_RE.search(html)
     if not m:
         raise RuntimeError(f"no __NEXT_DATA__ on {url}")
@@ -84,31 +86,38 @@ def fetch_ss_page(slug, city_id, page, locale="ru"):
     return data["props"]["pageProps"]["applicationList"]["realStateItemModel"]
 
 
+def fetch_any(slug, city_id, page, newest):
+    """Tries the Russian page, then the Georgian one. Returns None if both fail."""
+    for locale in ("ru", "ka"):
+        try:
+            return fetch_ss_page(slug, city_id, page, locale, newest, attempts=2 if newest else 3)
+        except Exception as e:  # noqa: BLE001
+            log(f"ss.ge {slug} p{page} {locale} {'newest' if newest else 'default'}: {e!r}")
+            if newest:
+                return None  # the sorted listing is failing on ss.ge's side; caller falls back
+    return None
+
+
 def collect(cfg):
+    """Collects listings. ss.ge's "newest first" sorting sometimes times out on their
+    side (HTTP 504) while the default listing still works, so we fall back to it."""
     items = []
     for sec in cfg["sections"]:
-        for page in range(1, sec.get("pages", 1) + 1):
-            batch = None
-            unreachable = False
-            for locale in ("ru", "ka"):
-                try:
-                    batch = fetch_ss_page(sec["slug"], cfg["city_id"], page, locale)
-                    break
-                except (TimeoutError, OSError) as e:
-                    # network problem: the other locale is on the same server, don't wait twice
-                    log(f"ss.ge {sec['slug']} p{page} {locale}: {e!r}")
-                    unreachable = True
-                    break
-                except Exception as e:  # noqa: BLE001
-                    log(f"ss.ge {sec['slug']} p{page} {locale}: {e!r}")
-            if unreachable and not items:
-                log("ss.ge is not responding — giving up for this run")
-                return items
+        newest = True
+        pages = sec.get("pages", 1)
+        page = 1
+        while page <= pages:
+            batch = fetch_any(sec["slug"], cfg["city_id"], page, newest)
+            if batch is None and newest:
+                log(f"falling back to default order for {sec['slug']}")
+                newest, page, pages = False, 1, pages + 2
+                continue
             if not batch:
                 break
             for it in batch:
                 it["_kind"] = sec["kind"]
                 items.append(it)
+            page += 1
             time.sleep(1.5)
     return items
 
