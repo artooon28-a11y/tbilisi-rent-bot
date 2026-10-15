@@ -33,6 +33,7 @@ NEXT_DATA_RE = re.compile(r'<script id="__NEXT_DATA__" type="application/json">(
 
 LOG_PATH = os.path.join(ROOT, "state", "last_run.log")
 _LOG = []
+START = time.time()
 
 
 def log(*a):
@@ -54,7 +55,7 @@ def write_log():
 
 # ---------------------------------------------------------------- fetching
 
-def http_get(url, timeout=60, attempts=3):
+def http_get(url, timeout=30, attempts=3):
     headers = {
         "User-Agent": UA,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -62,14 +63,19 @@ def http_get(url, timeout=60, attempts=3):
     }
     last = None
     for n in range(attempts):
+        t0 = time.time()
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as r:
-                return r.read().decode("utf-8", "replace")
+                body = r.read().decode("utf-8", "replace")
+            log(f"  GET ok in {time.time() - t0:.1f}s: {url[:110]}")
+            return body
         except Exception as e:  # noqa: BLE001
             last = e
-            log(f"  attempt {n + 1} failed: {e!r}")
-            time.sleep(10 * (n + 1))
+            log(f"  attempt {n + 1} failed after {time.time() - t0:.1f}s: {e!r}")
+            if time.time() - START > 360:
+                break  # stay well inside the job time limit
+            time.sleep(5 * (n + 1))
     raise last
 
 
