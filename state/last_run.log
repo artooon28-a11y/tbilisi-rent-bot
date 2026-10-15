@@ -1,25 +1,13 @@
-run at 2026-10-15T11:03:06.274343+00:00
+run at 2026-10-15T11:04:40.964897+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
-getChat: ok Квартиры в Тбилиси🇬🇪
+getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
 bot in channel: member can_post: None
-  attempt 1 failed after 30.2s: TimeoutError('The read operation timed out')
-  attempt 2 failed after 30.2s: TimeoutError('The read operation timed out')
-ss.ge qiravdeba p1 ru newest: TimeoutError('The read operation timed out')
-falling back to default order for qiravdeba
-  attempt 1 failed after 30.3s: TimeoutError('The read operation timed out')
-  attempt 2 failed after 30.3s: TimeoutError('The read operation timed out')
-  attempt 3 failed after 30.3s: TimeoutError('The read operation timed out')
-ss.ge qiravdeba p1 ru default: TimeoutError('The read operation timed out')
-  GET ok in 18.4s: https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
-  GET ok in 14.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2
-  attempt 1 failed after 30.3s: TimeoutError('The read operation timed out')
-  attempt 2 failed after 30.2s: TimeoutError('The read operation timed out')
-  GET ok in 19.6s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3
-  GET ok in 9.6s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=4
-  GET ok in 12.1s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=5
-  GET ok in 2.2s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
-  GET ok in 2.1s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
-collected 112 listings
-8 new eligible listings
+  GET ok in 21.5s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  GET ok in 18.6s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2&order=1
+  GET ok in 10.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3&order=1
+  GET ok in 1.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
+  GET ok in 2.4s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
+collected 80 listings
+26 new eligible listings
 posted 1
