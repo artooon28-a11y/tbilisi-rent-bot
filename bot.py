@@ -247,7 +247,11 @@ def format_post(it, cfg, market):
     street = " ".join(x for x in [a.get("streetTitle"), a.get("streetNumber")] if x)
     loc = ", ".join(x for x in [a.get("districtTitle"), street] if x)
     if loc:
-        lines.append(f"📍 {esc(loc)}")
+        url = maps_url(it)
+        if url:
+            lines.append(f'📍 <a href="{esc(url)}">{esc(loc)}</a>')
+        else:
+            lines.append(f"📍 {esc(loc)}")
 
     tags = [hashtag(sub)]
     if rooms:
@@ -295,18 +299,42 @@ def tg(method, payload, token):
         return {"ok": False, "description": f"{type(e).__name__}: {e}"}
 
 
-def photo_urls(it, limit):
-    """Full-size photo URLs, main photo first. The search page only carries a few
-    images, so the listing page is fetched for the complete set."""
-    imgs = []
+def load_detail(it):
+    """Fetches the listing page once (full photo set, map coordinates)."""
+    if "_detail" in it:
+        return it["_detail"]
+    it["_detail"] = {}
     try:
         html = http_get(listing_url(it), attempts=2)
         m = NEXT_DATA_RE.search(html)
         if m:
-            data = json.loads(m.group(1))
-            imgs = data["props"]["pageProps"]["applicationData"].get("appImages") or []
+            it["_detail"] = json.loads(m.group(1))["props"]["pageProps"].get("applicationData") or {}
     except Exception as e:  # noqa: BLE001
-        log("listing page for photos failed:", repr(e))
+        log("listing page failed:", repr(e))
+    return it["_detail"]
+
+
+def maps_url(it):
+    """Google Maps link: exact point if the owner set one, else the street point,
+    else a text search for the street address."""
+    d = it.get("_detail") or {}
+    lat = d.get("locationLatitude") or d.get("streetLocationLatitude")
+    lng = d.get("locationLongitude") or d.get("streetLocationLongitude")
+    if lat and lng:
+        q = f"{lat},{lng}"
+    else:
+        a = it.get("address") or {}
+        street = " ".join(x for x in [a.get("streetTitle"), a.get("streetNumber")] if x)
+        if not street:
+            return None
+        q = f"{street}, Tbilisi"
+    return "https://www.google.com/maps/search/?api=1&query=" + urllib.parse.quote(q)
+
+
+def photo_urls(it, limit):
+    """Full-size photo URLs, main photo first. The search page only carries a few
+    images, so the full set comes from the listing page."""
+    imgs = load_detail(it).get("appImages") or []
     if not imgs:
         imgs = it.get("appImages") or []
     imgs = [i for i in imgs if i.get("fileName") and not i.get("is360")]
@@ -470,6 +498,7 @@ def main():
     if preview:
         out = ["# Preview (no TELEGRAM_BOT_TOKEN / CHANNEL_ID set)\n"]
         for it in fresh[:cfg["max_posts_per_run"]]:
+            load_detail(it)
             out.append(format_post(it, cfg, it["_market"]))
             out.append("Buttons: " + json.dumps(buttons(it, cfg), ensure_ascii=False))
             img = (it.get("appImages") or [{}])[0].get("fileName")
@@ -490,6 +519,7 @@ def main():
     for it in fresh:
         if sent >= cfg["max_posts_per_run"]:
             break
+        load_detail(it)
         text = format_post(it, cfg, it["_market"])
         if send(it, text, buttons(it, cfg), token, chat, cfg.get("photos_per_post", 5)):
             state["posted"][str(it["applicationId"])] = now.isoformat()
