@@ -55,7 +55,7 @@ def write_log():
 
 # ---------------------------------------------------------------- fetching
 
-def http_get(url, timeout=30, attempts=3):
+def http_get(url, timeout=55, attempts=3):
     headers = {
         "User-Agent": UA,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -73,7 +73,7 @@ def http_get(url, timeout=30, attempts=3):
         except Exception as e:  # noqa: BLE001
             last = e
             log(f"  attempt {n + 1} failed after {time.time() - t0:.1f}s: {e!r}")
-            if time.time() - START > 360:
+            if time.time() - START > 480:
                 break  # stay well inside the job time limit
             time.sleep(5 * (n + 1))
     raise last
@@ -379,7 +379,8 @@ def main():
         me = tg("getMe", {}, token)
         log("getMe:", "ok @" + me["result"]["username"] if me.get("ok") else me.get("description"))
         ch = tg("getChat", {"chat_id": chat}, token)
-        log("getChat:", ("ok " + str(ch["result"].get("title"))) if ch.get("ok") else ch.get("description"))
+        log("getChat:", ("ok " + str(ch["result"].get("title")) + " type=" + str(ch["result"].get("type")))
+            if ch.get("ok") else ch.get("description"))
         if me.get("ok") and ch.get("ok"):
             mem = tg("getChatMember", {"chat_id": chat, "user_id": me["result"]["id"]}, token)
             r = mem.get("result") or {}
