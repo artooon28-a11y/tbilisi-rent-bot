@@ -110,7 +110,29 @@ def full_image(url):
 
 
 def listing_url(it):
-    return f"{SS_BASE}/ru/udzravi-qoneba/{it['detailUrl']}"
+    slug = urllib.parse.quote(it["detailUrl"])
+    return f"{SS_BASE}/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/{slug}"
+
+
+METRO_RU = {
+    "akhmetelitheatre": "Театр Ахметели", "akhmeteli": "Театр Ахметели",
+    "sarajishvili": "Сараджишвили", "guramishvili": "Гурамишвили", "grmagele": "Грмагеле",
+    "didube": "Дидубе", "gotsiridze": "Гоциридзе", "nadzaladevi": "Надзаладеви",
+    "stationsquare": "Вокзальная площадь", "sadguriskhoedani": "Вокзальная площадь",
+    "marjanishvili": "Марджанишвили", "rustaveli": "Руставели",
+    "libertysquare": "Площадь Свободы", "tavisuplebismoedani": "Площадь Свободы",
+    "avlabari": "Авлабари", "300aragveli": "300 Арагвели", "isani": "Исани",
+    "samgori": "Самгори", "varketili": "Варкетили", "tsereteli": "Церетели",
+    "techuni": "Технический университет", "technicaluniversity": "Технический университет",
+    "meduni": "Медицинский университет", "medicaluniversity": "Медицинский университет",
+    "delisi": "Делиси", "vazhapshavela": "Важа-Пшавела",
+    "stateuniversity": "Государственный университет", "university": "Государственный университет",
+}
+
+
+def metro_name(title):
+    key = re.sub(r"[^a-z0-9]", "", (title or "").lower())
+    return METRO_RU.get(key) or (title or "").replace("_", " ").title()
 
 
 def price_bucket(usd, kind):
@@ -163,7 +185,7 @@ def format_post(it, cfg, market):
     st = (it.get("nearbySubwayStations") or [])
     if st:
         s0 = st[0]
-        name = (s0.get("stationTitle") or "").replace("_", " ").title()
+        name = metro_name(s0.get("stationTitle"))
         if name:
             t = f", {s0['timeDistance']} мин" if s0.get("timeDistance") else ""
             lines.append(f"🚇 м. {esc(name)}{t}")
