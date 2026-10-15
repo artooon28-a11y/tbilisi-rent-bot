@@ -54,10 +54,23 @@ def write_log():
 
 # ---------------------------------------------------------------- fetching
 
-def http_get(url, timeout=40):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "ru,en;q=0.8"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8", "replace")
+def http_get(url, timeout=60, attempts=3):
+    headers = {
+        "User-Agent": UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "ru,en;q=0.8",
+    }
+    last = None
+    for n in range(attempts):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read().decode("utf-8", "replace")
+        except Exception as e:  # noqa: BLE001
+            last = e
+            log(f"  attempt {n + 1} failed: {e!r}")
+            time.sleep(10 * (n + 1))
+    raise last
 
 
 def fetch_ss_page(slug, city_id, page, locale="ru"):
@@ -76,12 +89,21 @@ def collect(cfg):
     for sec in cfg["sections"]:
         for page in range(1, sec.get("pages", 1) + 1):
             batch = None
+            unreachable = False
             for locale in ("ru", "ka"):
                 try:
                     batch = fetch_ss_page(sec["slug"], cfg["city_id"], page, locale)
                     break
+                except (TimeoutError, OSError) as e:
+                    # network problem: the other locale is on the same server, don't wait twice
+                    log(f"ss.ge {sec['slug']} p{page} {locale}: {e!r}")
+                    unreachable = True
+                    break
                 except Exception as e:  # noqa: BLE001
                     log(f"ss.ge {sec['slug']} p{page} {locale}: {e!r}")
+            if unreachable and not items:
+                log("ss.ge is not responding — giving up for this run")
+                return items
             if not batch:
                 break
             for it in batch:
@@ -351,8 +373,9 @@ def main():
     items = collect(cfg)
     log(f"collected {len(items)} listings")
     if not items:
-        log("nothing collected — site layout may have changed")
-        sys.exit(1)
+        # Usually ss.ge is temporarily slow or unreachable; the next run will try again.
+        log("nothing collected this time (ss.ge unreachable or layout changed) — skipping run")
+        return
 
     state = load_state()
     first_run = state is None
