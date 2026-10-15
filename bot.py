@@ -31,8 +31,25 @@ SS_BASE = "https://home.ss.ge"
 NEXT_DATA_RE = re.compile(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', re.S)
 
 
+LOG_PATH = os.path.join(ROOT, "state", "last_run.log")
+_LOG = []
+
+
 def log(*a):
-    print(*a, file=sys.stderr, flush=True)
+    line = " ".join(str(x) for x in a)
+    _LOG.append(line)
+    print(line, file=sys.stderr, flush=True)
+
+
+def write_log():
+    """Saves this run's log next to the state so problems can be read from the repo."""
+    text = "\n".join(_LOG) + "\n"
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    if token:
+        text = text.replace(token, "<TOKEN>")
+    os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
+    with open(LOG_PATH, "w", encoding="utf-8") as f:
+        f.write(f"run at {datetime.now(timezone.utc).isoformat()}\n" + text)
 
 
 # ---------------------------------------------------------------- fetching
@@ -237,6 +254,8 @@ def tg(method, payload, token):
             return json.loads(body)
         except ValueError:
             return {"ok": False, "description": body[:300]}
+    except Exception as e:  # noqa: BLE001  network errors, bad token characters, etc.
+        return {"ok": False, "description": f"{type(e).__name__}: {e}"}
 
 
 def send(it, text, kb, token, chat):
@@ -317,6 +336,17 @@ def main():
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     chat = os.environ.get("CHANNEL_ID", "").strip()
     preview = not (token and chat)
+    log(f"mode: {'preview' if preview else 'publish'}; token set: {bool(token)}; channel set: {bool(chat)}")
+
+    if not preview:
+        me = tg("getMe", {}, token)
+        log("getMe:", "ok @" + me["result"]["username"] if me.get("ok") else me.get("description"))
+        ch = tg("getChat", {"chat_id": chat}, token)
+        log("getChat:", ("ok " + str(ch["result"].get("title"))) if ch.get("ok") else ch.get("description"))
+        if me.get("ok") and ch.get("ok"):
+            mem = tg("getChatMember", {"chat_id": chat, "user_id": me["result"]["id"]}, token)
+            r = mem.get("result") or {}
+            log("bot in channel:", r.get("status"), "can_post:", r.get("can_post_messages"))
 
     items = collect(cfg)
     log(f"collected {len(items)} listings")
@@ -394,4 +424,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import traceback
+    try:
+        main()
+    except SystemExit:
+        write_log()
+        raise
+    except Exception:  # noqa: BLE001
+        log(traceback.format_exc())
+        write_log()
+        sys.exit(1)
+    write_log()
