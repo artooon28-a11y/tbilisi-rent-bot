@@ -3,9 +3,6 @@ on:
   schedule:
     - cron: "17 */3 * * *"   # every 3 hours, UTC (GitHub may delay runs a little)
   workflow_dispatch:          # "Run workflow" button in the Actions tab
-  push:
-    branches: [main]
-    paths: ["bot.py", "config.json", ".github/workflows/post.yml"]
 
 permissions:
   contents: write
