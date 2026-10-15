@@ -347,8 +347,18 @@ def main():
         it["_market"] = m
         fresh.append(it)
 
-    # newest first: the channel always gets the freshest listings; older backlog ages out
-    fresh.sort(key=lambda x: parse_dt(x.get("createDate")) or now, reverse=True)
+    # Best first: below-market deals, then listings with metro nearby, furniture and
+    # more photos, then the newest. With one post per run this picks the most
+    # attractive listing of the period; the rest age out.
+    def score(x):
+        return (
+            x["_market"].get("hot", False),
+            bool(x.get("nearbySubwayStations")),
+            bool(x.get("furniture")),
+            min(x.get("imageCount") or 0, 8),
+            parse_dt(x.get("createDate")) or now,
+        )
+    fresh.sort(key=score, reverse=True)
     log(f"{len(fresh)} new eligible listings")
 
     if preview:
