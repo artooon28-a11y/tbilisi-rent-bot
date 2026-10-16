@@ -1,14 +1,14 @@
-run at 2026-10-16T00:51:53.323239+00:00
+run at 2026-10-16T03:43:18.333612+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
 bot in channel: member can_post: None
-  GET ok in 6.4s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
-  GET ok in 5.8s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2&order=1
-  GET ok in 6.1s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3&order=1
-  GET ok in 3.9s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
-  GET ok in 2.0s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
+  GET ok in 5.4s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  GET ok in 4.9s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2&order=1
+  GET ok in 4.2s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3&order=1
+  GET ok in 2.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
+  GET ok in 1.5s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
 collected 80 listings
-45 new eligible listings
+38 new eligible listings
   GET ok in 0.9s: https://home.ss.ge/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/%D0%90%D1%80%D0
 posted 1
