@@ -1,6 +1,0 @@
-html_ru 200 text/html; charset=utf-8 398149b 2.0s title=Сдается Квартиры В Тбилиси | Myhome.ge has_statements=False
-html_ka 200 text/html; charset=utf-8 396709b 1.4s title=ქირავდება ბინები თბილისში | Myhome.ge has_statements=False
-data_json 200 application/json 267869b 1.0s title= has_statements=True
-sitemap 200 text/xml 10726b 0.9s title= has_statements=False
-img 200 image/webp 84622b 0.6s title= has_statements=False
-home_bare 200 text/html; charset=utf-8 396206b 1.5s title=N1 უძრავი ქონების პლატფორმა ბაზარზე | Myhome.ge has_statements=False

@@ -1,17 +1,50 @@
 {
+  "sources": {
+    "ss.ge": true,
+    "myhome.ge": true
+  },
   "city_id": 95,
   "sections": [
-    {"slug": "qiravdeba", "kind": "month", "pages": 3},
-    {"slug": "qiravdeba-dghiurad", "kind": "day", "pages": 2}
+    {
+      "slug": "qiravdeba",
+      "kind": "month",
+      "pages": 3
+    },
+    {
+      "slug": "qiravdeba-dghiurad",
+      "kind": "day",
+      "pages": 2
+    }
   ],
+  "myhome": {
+    "city_id": 1,
+    "detail_checks": 10,
+    "sections": [
+      {
+        "deal_type": 2,
+        "kind": "month",
+        "pages": 3
+      },
+      {
+        "deal_type": 7,
+        "kind": "day",
+        "pages": 2
+      }
+    ]
+  },
   "max_age_hours": 6,
   "max_posts_per_run": 1,
   "delay_between_posts_sec": 4,
   "require_photo": true,
   "photos_per_post": 5,
-  "price_usd_month": {"min": 250, "max": 5000},
-  "price_usd_day": {"min": 15, "max": 500},
-
+  "price_usd_month": {
+    "min": 250,
+    "max": 5000
+  },
+  "price_usd_day": {
+    "min": 15,
+    "max": 500
+  },
   "esim_button_text": "📶 eSIM для Грузии — интернет с первой минуты",
   "esim_url": "https://t.me/your_esim_bot",
   "promo_line": "",
