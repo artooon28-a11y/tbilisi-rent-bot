@@ -175,7 +175,8 @@ def ss_normalize(it, kind):
     imgs = sorted([i for i in (it.get("appImages") or []) if i.get("fileName")],
                   key=lambda i: (not i.get("isMain"), i.get("orderNo") or 0))
     st = (it.get("nearbySubwayStations") or [None])[0] or {}
-    street = " ".join(x for x in [a.get("streetTitle"), a.get("streetNumber")] if x)
+    num = (a.get("streetNumber") or "").strip()
+    street = " ".join(x for x in [a.get("streetTitle"), num if num not in ("0", "-") else ""] if x)
     return new_listing(
         key=str(it["applicationId"]),  # plain id: compatible with earlier state files
         source="ss.ge", kind=kind,
@@ -742,13 +743,25 @@ def main():
 
     limit = cfg["max_posts_per_run"]
     if preview:
+        # best listing from each source, then the overall next best
+        picks, used = [], set()
+        for src in ("ss.ge", "myhome.ge"):
+            best = next((L for L in fresh if L["source"] == src), None)
+            if best:
+                picks.append(best); used.add(best["key"])
+        picks += [L for L in fresh if L["key"] not in used][:max(0, 3 - len(picks))]
         out, n = ["# Preview (no TELEGRAM_BOT_TOKEN / CHANNEL_ID set)\n"], 0
-        for L in fresh:
-            if n >= max(limit, 3):
-                break
+        for L in picks:
             load_detail(L)
             if is_duplicate(L):
                 continue
+            if L["photos"] and L["photos"][0].lower().endswith(".webp"):
+                try:
+                    raw = http_get_bytes(L["photos"][0], attempts=2, quiet=True)
+                    jpg, mime = to_jpeg(raw)
+                    log(f"photo check {L['key']}: {len(raw)} bytes webp -> {len(jpg)} bytes {mime}")
+                except Exception as e:  # noqa: BLE001
+                    log(f"photo check {L['key']} failed: {e!r}")
             out.append(f"[{L['source']}] " + format_post(L, cfg, L["_market"]))
             out.append("Buttons: " + json.dumps(buttons(L, cfg), ensure_ascii=False))
             out.append("Photos: " + ", ".join(L["photos"][:cfg.get("photos_per_post", 5)]) + "\n\n---\n")
