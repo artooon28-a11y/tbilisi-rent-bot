@@ -1,32 +1,30 @@
-run at 2026-10-20T00:56:07.154679+00:00
+run at 2026-10-20T03:44:21.668202+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
-  GET ok in 6.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
-  GET ok in 5.5s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2&order=1
-  GET ok in 5.3s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3&order=1
-  GET ok in 1.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
-  GET ok in 2.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
+  GET ok in 6.1s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  GET ok in 4.5s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=2&order=1
+  GET ok in 4.7s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=3&order=1
+  GET ok in 1.5s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=1
+  GET ok in 2.2s: https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=2&order=1
 ss.ge: collected 80
-  GET ok in 2.0s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  GET ok in 1.6s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
   GET ok in 1.2s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
-  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 2.1s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
+  GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
+  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
 myhome.ge: collected 120
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-isani-26395307/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-kvartira-v-cugureti-26395224/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-vera-26395192/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26394728/
+  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-isani-26395307/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-kvartira-v-cugureti-26395224/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-vera-26395192/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26394728/
   GET ok in 0.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-muxiani-26394207/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-saburtalo-26393671/
-  GET ok in 1.2s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-didi-digomi-26393196/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26392060/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-saburtalo-26393671/
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-didi-digomi-26393196/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26392060/
   GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26391950/
-  GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-sololaki-26391117/
-38 new eligible listings (ss.ge 35, myhome.ge 3)
-  GET ok in 4.8s: https://home.ss.ge/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/%D0%90%D1%80%D0
-skip 37066992: same flat as already posted 37043404
-  GET ok in 2.1s: https://home.ss.ge/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/%D0%90%D1%80%D0
-posted 37066940 from ss.ge
+  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-sololaki-26391117/
+22 new eligible listings (ss.ge 22, myhome.ge 0)
+  GET ok in 1.0s: https://home.ss.ge/ru/%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/%D0%90%D1%80%D0
+posted 37067062 from ss.ge
 posted 1
