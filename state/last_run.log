@@ -1,38 +1,38 @@
-run at 2026-10-23T21:42:40.202737+00:00
+run at 2026-10-24T00:59:40.225187+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
-  attempt 1 failed after 0.2s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
 ss.ge qiravdeba p1 ru newest: <HTTPError 403: 'Forbidden'>
 ss.ge: falling back to default order for qiravdeba
   attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
 ss.ge qiravdeba p1 ru default: <HTTPError 403: 'Forbidden'>
-  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
+  attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
 ss.ge qiravdeba p1 ka default: <HTTPError 403: 'Forbidden'>
-  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=
+  attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1&order=
 ss.ge qiravdeba-dghiurad p1 ru newest: <HTTPError 403: 'Forbidden'>
 ss.ge: falling back to default order for qiravdeba-dghiurad
-  attempt 1 failed after 0.2s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1
+  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1
 ss.ge qiravdeba-dghiurad p1 ru default: <HTTPError 403: 'Forbidden'>
   attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1
 ss.ge qiravdeba-dghiurad p1 ka default: <HTTPError 403: 'Forbidden'>
 ss.ge: collected 0
-  GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  GET ok in 1.8s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
-  GET ok in 1.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
-  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 2.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
+  GET ok in 2.2s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
+  GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
+  GET ok in 1.8s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
 myhome.ge: collected 120
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-1-komnatnaia-kvartira-v-ortacala-26445939/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-ortacala-26445878/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26445274/
-  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-ortacala-26444965/
-  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-ortacala-26444851/
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-1-komnatnaia-kvartira-v-ortacala-26445939/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26445274/
+  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-ortacala-26444965/
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-ortacala-26444851/
   GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-krcanisi-26444827/
-  GET ok in 1.4s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-saburtalo-26444176/
-  GET ok in 1.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26443318/
+  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-saburtalo-26444176/
+  GET ok in 1.2s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26443318/
   GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-vake-26442911/
   GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26442474/
-4 new eligible listings (ss.ge 0, myhome.ge 4)
-posted mh:26445878 from myhome.ge
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26442081/
+1 new eligible listings (ss.ge 0, myhome.ge 1)
+posted mh:26445939 from myhome.ge
 posted 1
