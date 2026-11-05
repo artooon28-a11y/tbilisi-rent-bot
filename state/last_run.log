@@ -1,11 +1,11 @@
-run at 2026-11-05T04:16:27.823343+00:00
+run at 2026-11-05T07:31:17.210421+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
-  attempt 1 failed after 0.3s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
 ss.ge qiravdeba p1 ru newest: <HTTPError 403: 'Forbidden'>
 ss.ge: falling back to default order for qiravdeba
-  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
+  attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
 ss.ge qiravdeba p1 ru default: <HTTPError 403: 'Forbidden'>
   attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
 ss.ge qiravdeba p1 ka default: <HTTPError 403: 'Forbidden'>
@@ -17,32 +17,22 @@ ss.ge qiravdeba-dghiurad p1 ru default: <HTTPError 403: 'Forbidden'>
   attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1
 ss.ge qiravdeba-dghiurad p1 ka default: <HTTPError 403: 'Forbidden'>
 ss.ge: collected 0
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  GET ok in 10.1s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
-  attempt 2 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
-myhome.ge month p2: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.0s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 48.8s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 28.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
-myhome.ge: collected 72
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-2657773
-  GET ok in 43.1s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26577736/
-  attempt 1 failed after 55.0s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-2657737
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-2657735
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-2657731
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  GET ok in 22.2s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-na-den-1-komnatnaia-kvartira-v-saburtalo-26576427/
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-san-zona-26574588/
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-1-komnatnaia-kvartira-v-isani-26574209/
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-vake-26572935/
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  attempt 1 failed after 55.1s: TimeoutError('The read operation timed out') https://www.myhome.ge/ru/nedvizhimost/sdaetsia-na-den-2-komnatnaia-kvartira-v-varketili-26
-myhome.ge listing page failed: TimeoutError('The read operation timed out')
-  GET ok in 15.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26562725/
-0 new eligible listings (ss.ge 0, myhome.ge 0)
-posted 0
+  GET ok in 9.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
+  GET ok in 9.9s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
+  GET ok in 9.2s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
+  GET ok in 9.6s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
+  GET ok in 15.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
+myhome.ge: collected 120
+  GET ok in 10.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-isani-26578071/
+  GET ok in 9.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-na-den-2-komnatnaia-kvartira-v-didi-digomi-26578035/
+  GET ok in 6.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-saburtalo-26577963/
+  GET ok in 15.1s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26577736/
+  GET ok in 11.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26577373/
+  GET ok in 15.2s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26577356/
+  GET ok in 5.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-kvartira-v-didi-digomi-26577313/
+  GET ok in 26.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-na-den-1-komnatnaia-kvartira-v-saburtalo-26576427/
+  GET ok in 9.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-kvartira-v-san-zona-26574588/
+  GET ok in 4.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-1-komnatnaia-kvartira-v-isani-26574209/
+3 new eligible listings (ss.ge 0, myhome.ge 3)
+posted mh:26577963 from myhome.ge
+posted 1
