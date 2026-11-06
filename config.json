@@ -45,8 +45,6 @@
     "min": 15,
     "max": 500
   },
-  "esim_button_text": "📶 eSIM для Грузии — интернет с первой минуты",
-  "esim_url": "https://t.me/your_esim_bot",
   "promo_line": "",
   "contact_line": ""
 }

@@ -26,7 +26,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          ESIM_URL: ${{ vars.ESIM_URL }}
         run: python bot.py
       - name: Save state
         if: always()

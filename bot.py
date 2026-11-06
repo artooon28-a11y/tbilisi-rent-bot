@@ -5,7 +5,6 @@ Runs once per invocation (GitHub Actions calls it on a schedule).
 Secrets come from environment variables:
   TELEGRAM_BOT_TOKEN  bot token from @BotFather (bot must be a channel admin)
   CHANNEL_ID          e.g. @my_channel or -100123456789
-  ESIM_URL            optional, overrides esim_url from config.json
 If TELEGRAM_BOT_TOKEN is missing the bot runs in preview mode: it writes the
 posts it would send to preview.md and does not touch the state file.
 
@@ -448,9 +447,6 @@ def format_post(L, cfg, market):
 
 def buttons(L, cfg):
     rows = [[{"text": f"🔗 Открыть объявление на {L['source']}", "url": L["url"]}]]
-    esim = os.environ.get("ESIM_URL") or cfg.get("esim_url")
-    if esim:
-        rows.append([{"text": cfg.get("esim_button_text", "📶 eSIM для Грузии"), "url": esim}])
     return {"inline_keyboard": rows}
 
 
