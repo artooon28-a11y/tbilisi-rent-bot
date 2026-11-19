@@ -1,4 +1,4 @@
-run at 2026-11-18T20:30:50.161775+00:00
+run at 2026-11-19T02:34:19.831244+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
@@ -18,21 +18,20 @@ ss.ge qiravdeba-dghiurad p1 ru default: <HTTPError 403: 'Forbidden'>
 ss.ge qiravdeba-dghiurad p1 ka default: <HTTPError 403: 'Forbidden'>
 ss.ge: collected 0
   GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  GET ok in 1.3s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
-  GET ok in 1.6s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
-  GET ok in 1.8s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
+  GET ok in 1.1s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
+  GET ok in 1.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
+  GET ok in 1.6s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
 myhome.ge: collected 120
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26729046/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26729046/
   GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-ortacala-26728258/
-  GET ok in 0.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-ortacala-26728039/
-  GET ok in 0.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-staroe-zdanie-kvartira-v-vake-26727179/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-krcanisi-26724998/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26724097/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-mesame-masivi-26724025/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-novoe-zdanie-kvartira-v-vake-26723416/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26723100/
-  GET ok in 0.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26722609/
-4 new eligible listings (ss.ge 0, myhome.ge 4)
-posted mh:26727179 from myhome.ge
-posted 1
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-ortacala-26728039/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-krcanisi-26724998/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26724097/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-mesame-masivi-26724025/
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-4-komnatnaia-novoe-zdanie-kvartira-v-vake-26723416/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26723100/
+  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26722609/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-krcanisi-26722249/
+0 new eligible listings (ss.ge 0, myhome.ge 0)
+posted 0
