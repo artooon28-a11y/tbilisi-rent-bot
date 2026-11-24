@@ -1,8 +1,8 @@
-run at 2026-11-24T13:42:18.757176+00:00
+run at 2026-11-24T23:54:09.099388+00:00
 mode: publish; token set: True; channel set: True
 getMe: ok @esim_georgia_bot
 getChat: ok Квартиры в Тбилиси🇬🇪 type=supergroup
-  attempt 1 failed after 0.5s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
+  attempt 1 failed after 0.1s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1&order=1
 ss.ge qiravdeba p1 ru newest: <HTTPError 403: 'Forbidden'>
 ss.ge: falling back to default order for qiravdeba
   attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ru/udzravi-qoneba/l/bina/qiravdeba?cityIdList=95&page=1
@@ -17,22 +17,21 @@ ss.ge qiravdeba-dghiurad p1 ru default: <HTTPError 403: 'Forbidden'>
   attempt 1 failed after 0.0s: <HTTPError 403: 'Forbidden'> https://home.ss.ge/ka/udzravi-qoneba/l/bina/qiravdeba-dghiurad?cityIdList=95&page=1
 ss.ge qiravdeba-dghiurad p1 ka default: <HTTPError 403: 'Forbidden'>
 ss.ge: collected 0
-  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
-  GET ok in 3.2s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
-  GET ok in 1.9s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
-  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
-  GET ok in 5.2s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=1
+  GET ok in 1.5s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=2
+  GET ok in 1.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=2&real_estate_types=1&cities=1&page=3
+  GET ok in 1.9s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=1
+  GET ok in 1.4s: https://www.myhome.ge/ru/nedvizhimost/?deal_types=7&real_estate_types=1&cities=1&page=2
 myhome.ge: collected 120
-  GET ok in 3.5s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didube-26784358/
-  GET ok in 0.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didube-26783981/
-  GET ok in 2.9s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26783826/
-  GET ok in 1.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-muxiani-26783502/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-staroe-zdanie-kvartira-v-cugureti-26783178/
-  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26782461/
-  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-gldani-26782397/
-  GET ok in 1.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26782248/
-  GET ok in 2.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26781673/
-  GET ok in 0.8s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26781454/
-10 new eligible listings (ss.ge 0, myhome.ge 10)
-posted mh:26781673 from myhome.ge
-posted 1
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-bagebi-26788512/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-5-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26788338/
+  GET ok in 0.5s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-ivertuban-26786253/
+  GET ok in 0.7s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-saburtalo-26786117/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26786106/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didube-26784358/
+  GET ok in 1.0s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didube-26783981/
+  GET ok in 1.1s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-didi-digomi-26783826/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-2-komnatnaia-novoe-zdanie-kvartira-v-muxiani-26783502/
+  GET ok in 0.6s: https://www.myhome.ge/ru/nedvizhimost/sdaetsia-3-komnatnaia-staroe-zdanie-kvartira-v-cugureti-26783178/
+0 new eligible listings (ss.ge 0, myhome.ge 0)
+posted 0
